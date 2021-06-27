@@ -1,0 +1,67 @@
+
+/* universal page styling -------------------------------------------------*/
+
+/* apply margin = 0 and padding = 0 for every element in the page using the universal selector (wildcard) */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* universal page styling -------------------------------------------------*/
+
+/* body styling -------------------------------------------------*/
+
+body {
+    color: #39a6b2;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* body styling -------------------------------------------------*/
+
+/* header styling -----------------------------------------------*/
+
+header {
+    padding: 20px 35px;
+    background-color: #39a6b2;
+}
+
+/* style <h1> header element */
+
+header h1 {
+    font-weight: bold;
+    font-size: 36px;
+    color: #fce138;
+    margin: 0;
+    display: inline;
+}
+
+/* style <a> elements */
+
+header a {
+    text-decoration: none;
+    color: #fce138;
+}
+
+/* style the <nav> element */
+
+header nav {
+    float: right;
+    margin: 7px 0;
+}
+
+/* positioning the <nav> elements in the header unoredered list */
+
+header nav ul li {
+    display: inline;
+}
+
+/* style the <a> elements in the header unordered list */
+
+header nav ul li a {
+    margin: 0 30px;
+    font-weight: lighter;
+    font-size: 22px;
+}
+
+/* header styling -----------------------------------------------*/
