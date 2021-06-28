@@ -6,6 +6,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /* universal page styling -------------------------------------------------*/
@@ -65,3 +66,37 @@ header nav ul li a {
 }
 
 /* header styling -----------------------------------------------*/
+
+/* footer styling -----------------------------------------------*/
+
+/* add some background footer styling */
+
+footer {
+    background: #fce138;
+    width: 100%;
+    padding: 40px 35px;
+}
+
+/* apply styling to the <h2> element in the footer */
+
+footer h2 {
+    display: inline;
+    color: #024e76;
+    font-size: 30px;
+    margin: 0;
+}
+/* apply style to the <div> container in the footer */
+
+footer div {
+    float: right;
+    line-height: 1.5;
+    text-align: right;
+}
+
+/* apply style to the <a> element in the footer */
+
+footer a {
+    color: #024e76;
+}
+
+/* footer styling -----------------------------------------------*/
