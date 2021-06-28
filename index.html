@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="./assets/css/style.css" />
     </head>
     <body>
-        <!--navigation-->
+        <!--header navigation-->
         <header>
             <h1>
                 <a href="/">RUN BUDDY</a>
@@ -31,10 +31,47 @@
                 </ul>
             </nav>
         </header>
+        <!--header navigation end-->
 
         <!--hero/jumbotron-->
         <section>
+            <div>
+                <h3>Get Started Today</h3>
+                <p>Fill out this form and one of our trainers will schedule a consult</p>
+                <!--add form element-->
+                <form>
+                    <!--name field in form-->
+                    <label for="name">Enter full name:</label>
+                    <input type="text" placeholder="Your Name" name="name" id="name" />
+                    <!--email field in form-->
+                    <label for="email">Enter email address:</label>
+                    <input type="email" placeholder="Email Address" name="email" id="email" />
+                    <!--phone field in form-->
+                    <label for="phone">Enter a telephone number:</label>
+                    <input type="tel" placeholder="Phone Number" name="phone" id="phone" />
+                    <!--radio button(s)-->
+                    <p>
+                        Have you worked out with a trainer before?
+                        <input type="radio" name="trainer-confirm" id="trainer-yes" />
+                        <label for="trainer-yes">Yes</label>
+                        <input type="radio" name="trainer-confirm" id="trainer-no" />
+                        <label for="trainer-no">No</label>
+                    </p>
+                    <!--add the checkbox input-->
+                    <p>
+                        <label for="age-acknowledge">
+                            I acknowledge that I am at least 18 years of age.
+                        </label>
+                        <input type="checkbox" name="age-acknowledge" id="age-acknowledge" />
+                    </p>
+                    <!--add the submit button-->
+                    <button type="submit">
+                        Get running!
+                    </button>
+                </form>
+            </div>
         </section>
+        <!--hero/jumbotron end-->
 
         <!--"what we do" section-->
         <section>
