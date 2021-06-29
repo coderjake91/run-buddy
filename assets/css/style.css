@@ -1,34 +1,25 @@
-
 /* universal page styling -------------------------------------------------*/
-
 /* apply margin = 0 and padding = 0 for every element in the page using the universal selector (wildcard) */
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 /* universal page styling -------------------------------------------------*/
 
-/* body styling -------------------------------------------------*/
-
+/* body styling start -------------------------------------------------*/
 body {
     color: #39a6b2;
     font-family: Helvetica, Arial, sans-serif;
 }
+/* body styling end -------------------------------------------------*/
 
-/* body styling -------------------------------------------------*/
-
-/* header styling -----------------------------------------------*/
-
+/* header styling start -----------------------------------------------*/
 header {
     padding: 20px 35px;
     background-color: #39a6b2;
 }
-
 /* style <h1> header element */
-
 header h1 {
     font-weight: bold;
     font-size: 36px;
@@ -36,49 +27,87 @@ header h1 {
     margin: 0;
     display: inline;
 }
-
 /* style <a> elements */
-
 header a {
     text-decoration: none;
     color: #fce138;
 }
-
 /* style the <nav> element */
-
 header nav {
     float: right;
     margin: 7px 0;
 }
-
 /* positioning the <nav> elements in the header unoredered list */
-
 header nav ul li {
     display: inline;
 }
-
 /* style the <a> elements in the header unordered list */
-
 header nav ul li a {
     margin: 0 30px;
     font-weight: lighter;
     font-size: 22px;
 }
+/* end header styling -----------------------------------------------*/
 
-/* header styling -----------------------------------------------*/
+/* Hero Styling start-------------------------------------------------*/
+.hero {
+    background-image: url("../images/hero-bg.jpeg");
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.hero-form {
+    background-color: #fce138;
+    padding: 20px;
+    width: 500px;
+    color: #024e76;
+    border: solid 3px #024e76;
+    position: absolute;
+    bottom: 120px;
+    right: 140px;
+}
+/* style the <h3> element in hero form */
+.hero-form h3 {
+    font-size: 20px;
+    margin: 0;
+}
+/* style the <p> element in hero form */
+.hero-form p {
+    margin: 5px 0 15px 0;
+}
+/* add spacing to the label element the form */
+.hero-form label {
+    margin: 0 5px;
+}
+/* format the form input field */
+.form-input {
+    border: 1px solid #024e76;
+    display: block;
+    padding: 7px 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #024e76;
+    width: 100%;
+}
 
-/* footer styling -----------------------------------------------*/
+.hero-form button {
+    color: #fce138;
+    background-color: #024e76;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+/* end Hero Styling -------------------------------------------------*/
 
+/* footer styling start -----------------------------------------------*/
 /* add some background footer styling */
-
 footer {
     background: #fce138;
     width: 100%;
     padding: 40px 35px;
 }
-
 /* apply styling to the <h2> element in the footer */
-
 footer h2 {
     display: inline;
     color: #024e76;
@@ -86,17 +115,18 @@ footer h2 {
     margin: 0;
 }
 /* apply style to the <div> container in the footer */
-
 footer div {
     float: right;
     line-height: 1.5;
     text-align: right;
 }
-
 /* apply style to the <a> element in the footer */
-
 footer a {
     color: #024e76;
 }
+/* end footer styling -----------------------------------------------*/
 
-/* footer styling -----------------------------------------------*/
+/* section element style */
+section { 
+    padding: 60px;
+}
