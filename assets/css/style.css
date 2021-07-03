@@ -276,6 +276,22 @@ footer a {
     color: white;
 }
 
+.contact-info h3 {
+    font-size: 32px;
+    color: #fce138;
+}
+
+.contact-info a {
+    color: #fce138;
+}
+
+/* create utility class for text styling in the contact section */
+.text-style {
+    font-size: 20px;
+    line-height: 1.5;
+    font-style: normal;
+    margin: 20px 0;
+}
 /* reach out section syling end -----------------------------------------*/
 
 /* section element style */
