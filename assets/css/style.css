@@ -122,9 +122,6 @@ header nav ul li a {
 /* end Hero Styling -------------------------------------------------*/
 
 /* Start "What We Do" Styling -------------------------------------------------*/
-.intro {
-    text-align: center;
-}
 /* style what we do para */
 .intro p {
     line-height: 1.7;
@@ -132,6 +129,7 @@ header nav ul li a {
     width: 80%;
     font-size: 20px;
     margin: 0 auto;
+    text-align: center;
 }
 /* End "What We Do" Styling -------------------------------------------------*/
 
@@ -139,7 +137,6 @@ header nav ul li a {
 
 /* higher level section styling within "steps" class */
 .steps {
-    text-align: center;
     background: #fce138;
 }
 /* style remaining steps section elements */
@@ -172,11 +169,11 @@ header nav ul li a {
 .section-title {
     font-size: 55px;
     color: #024e76;
-    margin-bottom: 35px;
-    padding: 0 100px 20px 100px;
-    /* display inline-block here due to h2 being a block element, but still can behave in-line */
-    display: inline-block;
     border-bottom: 3px solid;
+    padding-bottom: 20px;
+    text-align: center;
+    margin: 0 auto 35px auto;
+    width: 50%;
 }
 
 /* Utility classes for border coloring */
@@ -193,7 +190,6 @@ header nav ul li a {
 
 /* add styling to the outermost section element class "trainers" */
 .trainers {
-    text-align: center;
 }
 
 /* child article element styling for "trainers" */
@@ -234,15 +230,6 @@ header nav ul li a {
     line-height: 1.3;
 }
 
-/* utililty classes for general text align use */
-.text-left {
-    text-align: left;
-}
-
-.text-right {
-    text-align: right;
-}
-
 /* Meet your trainers section Styling end-------------------------------------------------*/
 
 /* footer styling start -----------------------------------------------*/
@@ -275,7 +262,6 @@ footer a {
 /* reach out section syling start -----------------------------------------*/
 .contact {
     background-color: #024e76;
-    text-align: center;
 }
 
 .contact h2 {
@@ -315,6 +301,19 @@ footer a {
     margin: 20px 0;
 }
 /* reach out section syling end -----------------------------------------*/
+
+/* utililty classes for general text align use */
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.flex-row {
+    display: flex;
+}
 
 /* section element style */
 section { 
