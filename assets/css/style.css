@@ -38,15 +38,20 @@ header a {
 header nav {
     margin: 7px 0;
 }
-/* positioning the <nav> elements in the header unoredered list */
-header nav ul li {
-    display: inline;
+
+/* utilize flexbox fro ul elements */
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
 }
 /* style the <a> elements in the header unordered list */
 header nav ul li a {
     margin: 0 30px;
     font-weight: lighter;
-    font-size: 22px;
+    font-size: 1.55vw;
 }
 /* end header styling -----------------------------------------------*/
 
