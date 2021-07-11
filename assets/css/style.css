@@ -293,19 +293,25 @@ footer a {
     color: #fce138;
 }
 
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* use of universal selector to select all elements that are direct children of element with contact-info as class */ 
+.contact-info > * {
+    flex: 1;
+    margin: 15px;
+}
+
 /* add stying to the contact info container iframe via a type selector */
 .contact-info iframe {
-    width: 400px;
     height: 400px;
 }
 
 /* alignment of iframe element and contact info + some info styling */
 .contact-info div {
-    width: 410px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: left;
-    margin: 30px 0 0 60px;
     color: white;
 }
 
@@ -318,9 +324,30 @@ footer a {
     color: #fce138;
 }
 
+.contact-form input, .contact-form textarea {
+    border: 1px solid #024e76;
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: #024e76;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.contact-form button {
+    width: 100%;
+    border: none;
+    background: #fce138;
+    color: #024e76;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+}
+
 /* create utility class for text styling in the contact section */
 .text-style {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.5;
     font-style: normal;
     margin: 20px 0;
