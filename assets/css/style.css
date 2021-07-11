@@ -5,67 +5,126 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* include CSS variables using root pseudo-class for global styling */
+:root {
+    --primary-color: #fce138;
+    --secondary-color: #024e76;
+    --tertiary-color: #39a6b2;
+}
 /* universal page styling -------------------------------------------------*/
 
 /* body styling start -------------------------------------------------*/
 body {
-    color: #39a6b2;
+    color: var(--tertiary-color);
     font-family: Helvetica, Arial, sans-serif;
 }
 /* body styling end -------------------------------------------------*/
 
 /* header styling start -----------------------------------------------*/
 header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     padding: 20px 35px;
-    background-color: #39a6b2;
+    background-color: var(--tertiary-color);
+    /* enable sticky header and include vendor prefix to enable Safari functionality */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    /* transfer some style declarations from hero to header */
+    background-image: url("../images/hero-bg.jpeg");
+    background-size: cover;
+    background-position: center;
+    /* place hero image relative to viewport instead of element */
+    background-attachment: fixed;
+    background-position: 80%;
+    /* keep header's stacking position on the top with z-index property */
+    z-index: 9999;
 }
 /* style <h1> header element */
 header h1 {
     font-weight: bold;
     font-size: 36px;
-    color: #fce138;
+    color: var(--primary-color);
     margin: 0;
-    display: inline;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 /* style <a> elements */
 header a {
     text-decoration: none;
-    color: #fce138;
+    color: var(--primary-color);
 }
 /* style the <nav> element */
 header nav {
-    float: right;
     margin: 7px 0;
 }
-/* positioning the <nav> elements in the header unoredered list */
-header nav ul li {
-    display: inline;
+
+/* utilize flexbox fro ul elements */
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
 }
 /* style the <a> elements in the header unordered list */
 header nav ul li a {
-    margin: 0 30px;
+    padding: 10px 15px;
     font-weight: lighter;
-    font-size: 22px;
+    font-size: 1.55vw;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* add pseudo-class to allow for style change upon hover */
+
+header nav ul li a:hover {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 15px;
+    text-shadow: none;
 }
 /* end header styling -----------------------------------------------*/
 
 /* Hero Styling start-------------------------------------------------*/
 .hero {
     background-image: url("../images/hero-bg.jpeg");
-    height: 600px;
     background-size: cover;
     background-position: center;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* place hero image relative to viewport instead of element */
+    background-attachment: fixed;
+    background-position: 80%;
 }
+/* hero call to action container */
+.hero-cta {
+    width: 35%;
+    text-align: right;
+    margin: 3.5%;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.hero-cta h2 {
+    font-style: italic;
+    font-size: 55px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 .hero-form {
-    background-color: #fce138;
+    background-color: rgb(252, 225, 56, 0.8);
     padding: 20px;
-    width: 500px;
-    color: #024e76;
-    border: solid 3px #024e76;
-    position: absolute;
-    bottom: 120px;
-    right: 140px;
+    color: var(--secondary-color);
+    border: solid 3px var(--secondary-color);
+    width: 40%;
+    margin: 3.5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
 /* style the <h3> element in hero form */
 .hero-form h3 {
@@ -80,37 +139,116 @@ header nav ul li a {
 .hero-form label {
     margin: 0 5px;
 }
+
+/* start-style checkbox and radio wrappers */
+.checkbox-wrapper input, .radio-wrapper input {
+    opacity: 0;
+}
+
+/* implement new radio and checkbox buttons using pseudo-classes*/
+.checkbox-wrapper label::before, .radio-wrapper label::before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--secondary-color);
+    position: absolute;
+    top: -4px;
+    left: -30px; 
+}
+
+/* make radio buttons circular */
+.radio-wrapper label::before {
+    border-radius: 50%;
+}
+
+/* continue styling radio buttons with after pseudo-element */
+.radio-wrapper label::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    position: absolute;
+    left: -29px;
+    top: -3px;
+    background-image: radial-gradient(circle, var(--tertiary-color), var(--secondary-color));
+}
+
+.checkbox-wrapper label::after {
+    content: "";
+    height: 6px;
+    width: 14px;
+    border-left: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    position: absolute;
+    left: -26px;
+    top: 1px;
+    transform: rotate(-58deg);
+}
+
+/* access the state of the inputs using checked pseudo-class */
+.checkbox-wrapper input + label::after, .radio-wrapper input + label::after {
+    content: none;
+}
+
+.checkbox-wrapper input:checked + label::after, .radio-wrapper input:checked + label::after {
+    content: "";
+}
+
+.checkbox-wrapper label, .radio-wrapper label {
+    position: relative;
+    left: 10px;
+    margin: 10px;
+    line-height: 1.6;
+}
+/* end-style checkbox and radio wrappers */
+
 /* format the form input field */
 .form-input {
-    border: 1px solid #024e76;
+    border: 1px solid var(--secondary-color);
     display: block;
     padding: 7px 15px;
     margin-bottom: 15px;
     font-size: 16px;
-    color: #024e76;
+    color: var(--secondary-color);
     width: 100%;
+    border-radius: 10px;
+    /* default color before focus */
+    background-color: rgba(252, 225, 255, 0.75);
 }
+
+/* focus state pseudo-class */
+.form-input:focus {
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
+}
+
 /* style the submit button */
 .hero-form button {
-    color: #fce138;
-    background-color: #024e76;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
     border: none;
     padding: 10px 20px;
     font-size: 16px;
+    border-radius: 10px;
+}
+
+/* add hover effect with pseudo class */
+.hero-form button:hover {
+    background-color: var(--tertiary-color);
 }
 /* end Hero Styling -------------------------------------------------*/
 
 /* Start "What We Do" Styling -------------------------------------------------*/
-.intro {
-    text-align: center;
-}
 /* style what we do para */
 .intro p {
     line-height: 1.7;
-    color: #39a6b2;
+    color: var(--tertiary-color);
     width: 80%;
     font-size: 20px;
     margin: 0 auto;
+    text-align: center;
 }
 /* End "What We Do" Styling -------------------------------------------------*/
 
@@ -118,53 +256,83 @@ header nav ul li a {
 
 /* higher level section styling within "steps" class */
 .steps {
-    text-align: center;
-    background: #fce138;
-}
-/* style remaining steps section elements */
-.steps div {
-    margin-bottom: 80px;
+    background: var(--primary-color);
 }
 
-.steps img {
-    width: 15%;
-    margin: 10px 0;
+.step {
+    margin: 50px auto;
+    padding-bottom: 50px;
+    width: 80%;
+    /* border-bottom: 1px solid var(--tertiary-color); */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.steps h3 {
-    color: #024e76;
+/* state based on positioning */
+.step:not(:last-child) {
+    border-bottom: 1px solid var(--tertiary-color);
+}
+
+.step h3 {
+    color: var(--secondary-color);
     font-size: 46px;
-    margin-top: 10px;
+    /* <flex-grow> <flex-basis> sytax */
+    flex: 1 30%;
+}
+/* style the child flexbox classes for step parent class */
+.step-info {
+    flex: 2 70%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+/* further nesting of flexboxes- text and img content */
+.step-text {
+    flex: 12;
 }
 
-.steps p {
-    color: #39a6b2;
-    font-size: 23px;
+.step-text h4 {
+    font-size: 26px;
+    line-height: 1.5;
+    color: var(--secondary-color);
 }
-/* format text for each step in <div> containers */
-.steps span{
-    font-size: 38px;
+
+.step-text p {
+    color: var(--tertiary-color);
+    font-size: 18px;
+}
+
+.step-img {
+    flex: 1 12%;
+    margin-right: 20px;
+}
+
+/* limit img tag width to its container */
+.step-img img {
+    max-width: 100%;
 }
 /* End "What You Do" Styling -------------------------------------------------*/
 
 /* Consolidate CSS rules for headings and borders(start)-------------------------------------------------*/
 .section-title {
-    font-size: 55px;
-    color: #024e76;
-    margin-bottom: 35px;
-    padding: 0 100px 20px 100px;
-    /* display inline-block here due to h2 being a block element, but still can behave in-line */
-    display: inline-block;
+    font-size: 48px;
+    color: var(--secondary-color);
     border-bottom: 3px solid;
+    padding-bottom: 20px;
+    text-align: center;
+    margin: 0 auto 35px auto;
+    width: 50%;
 }
 
 /* Utility classes for border coloring */
 .primary-border {
-    border-color: #fce138;
+    border-color: var(--primary-color);
 }
 
 .secondary-border {
-    border-color: #39a6b2;
+    border-color: var(--tertiary-color);
 }
 /* Consolidate CSS rules for headings and borders (end)-------------------------------------------------*/
 
@@ -172,46 +340,158 @@ header nav ul li a {
 
 /* add styling to the outermost section element class "trainers" */
 .trainers {
-    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 /* child article element styling for "trainers" */
 .trainer {
-    width: 900px;
-    margin: 0 auto 30px auto;
-    background: #024e76;
-    color: #fce138;
-    /* used overflow auto to contain trainer children in place when floating */
-    overflow: auto;
+    margin: 20px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    flex: 1;
 }
 
 .trainer img {
-    width: 35%;
-    float: left;
+    width: 100%;
 }
 
 .trainer-bio {
-    padding: 35px;
-    float: left;
-    width: 65%;
+    padding: 25px;
+    line-height: 1.3;
 }
 
 /* style specific to trainer names, heading, subheading, and p text */
 .trainer-bio h3 {
-    font-size: 32px;
-    margin-bottom: 8px;
+    font-size: 28px;
 }
 
 .trainer-bio h4 {
     font-weight: lighter;
-    font-size: 26px;
-    margin-bottom: 25px;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 .trainer-bio p {
     font-size: 17px;
-    line-height: 1.3;
 }
+
+/* Meet your trainers section Styling end-------------------------------------------------*/
+
+/* footer styling start -----------------------------------------------*/
+/* add some background footer styling */
+footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: var(--primary-color);
+    width: 100%;
+    padding: 40px 35px;
+}
+/* apply styling to the <h2> element in the footer */
+footer h2 {
+    color: var(--secondary-color);
+    font-size: 30px;
+    margin: 0;
+}
+/* apply style to the <div> container in the footer */
+footer div {
+    line-height: 1.5;
+    text-align: right;
+}
+/* apply style to the <a> element in the footer */
+footer a {
+    color: var(--secondary-color);
+}
+/* end footer styling -----------------------------------------------*/
+
+/* reach out section syling start -----------------------------------------*/
+.contact {
+    background-color: var(--secondary-color);
+}
+
+.contact h2 {
+    color: var(--primary-color);
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* use of universal selector to select all elements that are direct children of element with contact-info as class */ 
+.contact-info > * {
+    flex: 1;
+    margin: 15px;
+}
+
+/* add stying to the contact info container iframe via a type selector */
+.contact-info iframe {
+    height: 400px;
+}
+
+/* alignment of iframe element and contact info + some info styling */
+.contact-info div {
+    color: white;
+}
+
+.contact-info h3 {
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+.contact-info a {
+    color: var(--primary-color);
+}
+
+.contact-form input, .contact-form textarea {
+    border: 1px solid var(--secondary-color);
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: var(--secondary-color);
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    border-radius: 10px;
+    background-color: rgba(252, 225, 255, 0.75);
+}
+
+/* add focus pseudo-class */
+.contact-form input:focus, .contact-form textarea:focus {
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
+}
+
+.contact-form button {
+    width: 100%;
+    border: none;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+    border-radius: 10px;
+}
+ 
+/* add hover effect with pseudo class */
+.contact-form button:hover {
+    color: var(--primary-color);
+    background: var(--tertiary-color);
+}
+
+/* create utility class for text styling in the contact section */
+.text-style {
+    font-size: 16px;
+    line-height: 1.5;
+    font-style: normal;
+    margin: 20px 0;
+}
+/* reach out section syling end -----------------------------------------*/
 
 /* utililty classes for general text align use */
 .text-left {
@@ -222,79 +502,126 @@ header nav ul li a {
     text-align: right;
 }
 
-/* Meet your trainers section Styling end-------------------------------------------------*/
-
-/* footer styling start -----------------------------------------------*/
-/* add some background footer styling */
-footer {
-    background: #fce138;
-    width: 100%;
-    padding: 40px 35px;
+.flex-row {
+    display: flex;
 }
-/* apply styling to the <h2> element in the footer */
-footer h2 {
-    display: inline;
-    color: #024e76;
-    font-size: 30px;
-    margin: 0;
-}
-/* apply style to the <div> container in the footer */
-footer div {
-    float: right;
-    line-height: 1.5;
-    text-align: right;
-}
-/* apply style to the <a> element in the footer */
-footer a {
-    color: #024e76;
-}
-/* end footer styling -----------------------------------------------*/
-
-/* reach out section syling start -----------------------------------------*/
-.contact {
-    background-color: #024e76;
-    text-align: center;
-}
-
-.contact h2 {
-    color: #fce138;
-}
-
-/* add stying to the contact info container iframe via a type selector */
-.contact-info iframe {
-    width: 400px;
-    height: 400px;
-}
-
-/* alignment of iframe element and contact info + some info styling */
-.contact-info div {
-    width: 410px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: left;
-    margin: 30px 0 0 60px;
-    color: white;
-}
-
-.contact-info h3 {
-    font-size: 32px;
-    color: #fce138;
-}
-
-.contact-info a {
-    color: #fce138;
-}
-
-/* create utility class for text styling in the contact section */
-.text-style {
-    font-size: 20px;
-    line-height: 1.5;
-    font-style: normal;
-    margin: 20px 0;
-}
-/* reach out section syling end -----------------------------------------*/
 
 /* section element style */
 section { 
     padding: 60px;
+}
+
+/* set up media queries */
+
+/* media query for smaller desktop screens and smaller */
+@media screen and (max-width: 980px) {
+    header {
+        padding-bottom: 0;
+        justify-content: center;
+        /* revert back to normal header for mobile experience */
+        position:relative;
+    }
+
+    header h1 {
+        width: 100%;
+        text-align: center;
+        
+    }
+
+    header nav ul {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    header nav ul li a {
+        font-size: 20px;
+    }
+
+    footer h2, footer div {
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-cta, .hero-form {
+        width: 100%;
+    }
+
+    .hero-cta {
+        text-align: center;
+    }
+
+    .section-title {
+        width: 80%;
+    }
+
+    .trainer {
+        flex: 0 70%;
+    }
+
+    .contact-info iframe {
+        flex: 1 100%;
+    }
+}
+
+/* media query for tablets and smaller */
+@media screen and (max-width: 768px) {
+
+    section {
+        padding: 30px 15px;
+    }
+
+    .step h3 {
+        flex: 1 100%;
+        text-align: center;
+    }
+
+    .step-info {
+        flex: 2 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .step-img {
+        flex: 0 32%;
+        margin-right: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .step-text {
+        flex: 100%;
+    }
+}
+
+/* media query for mobile phones and smaller */
+@media screen and (max-width: 575px) {
+
+    .hero-form button {
+        width: 100%;
+    }
+
+    .section-title {
+        width: 95%;
+    }
+
+    .intro p {
+        width: 100%;
+    }
+
+    .trainer {
+        flex: 0 100%;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-info > * {
+        flex: 0 100%;
+    }
+
+    .contact-form {
+        order: 3;
+    }
 }
